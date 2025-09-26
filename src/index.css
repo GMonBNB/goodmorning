@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* GM Theme - Yellow & Black Binance Style */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    /* Primary: Binance Yellow */
+    --primary: 45 100% 51%;
+    --primary-foreground: 0 0% 8%;
+
+    /* Secondary: Light Yellow */
+    --secondary: 50 100% 90%;
+    --secondary-foreground: 0 0% 8%;
+
+    /* Muted: Light grays */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent: Darker Yellow */
+    --accent: 42 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 45 100% 51%;
+
+    /* GM Custom Colors */
+    --gm-yellow: 45 100% 51%;
+    --gm-black: 0 0% 8%;
+    --gm-yellow-light: 50 100% 90%;
+    --gm-yellow-dark: 42 100% 45%;
+    
+    /* Gradients */
+    --gradient-gm: linear-gradient(135deg, hsl(var(--gm-yellow)), hsl(var(--gm-yellow-dark)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--gm-yellow)) 0%, hsl(var(--gm-yellow-dark)) 100%);
+    
+    /* Shadows */
+    --shadow-gm: 0 10px 30px -10px hsl(var(--gm-yellow) / 0.3);
+    --shadow-hover: 0 20px 40px -10px hsl(var(--gm-yellow) / 0.4);
+    
+    /* Animations */
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with black background, yellow accents */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 45 100% 51%;
+    --primary-foreground: 0 0% 8%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 45 100% 51%;
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 51%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* GM Readable Fonts */
+  .font-meme {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-bubble {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* Font weight utilities for better readability */
+  .font-display {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 800;
+  }
+  
+  .font-heading {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-body-medium {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+  }
+  
+  /* Bounce animation */
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+  
+  .animate-glow {
+    box-shadow: 0 0 20px hsl(var(--gm-yellow) / 0.6);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--gm-yellow) / 0.6);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--gm-yellow) / 0.8), 0 0 40px hsl(var(--gm-yellow) / 0.6);
+    }
+  }
+  
+  @keyframes scroll-greetings {
+    0% {
+      transform: translateY(0);
+    }
+    8.33% {
+      transform: translateY(-3rem);
+    }
+    16.66% {
+      transform: translateY(-6rem);
+    }
+    25% {
+      transform: translateY(-9rem);
+    }
+    33.33% {
+      transform: translateY(-12rem);
+    }
+    41.66% {
+      transform: translateY(-15rem);
+    }
+    50% {
+      transform: translateY(-18rem);
+    }
+    58.33% {
+      transform: translateY(-21rem);
+    }
+    66.66% {
+      transform: translateY(-24rem);
+    }
+    75% {
+      transform: translateY(-27rem);
+    }
+    83.33% {
+      transform: translateY(-30rem);
+    }
+    91.66% {
+      transform: translateY(-33rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-scroll-greetings {
+    animation: scroll-greetings 15s ease-in-out infinite;
+  }
+  
+  /* Hover effects */
+  .hover-bounce:hover {
+    transform: translateY(-2px);
+    transition: var(--transition-bounce);
+  }
+}
